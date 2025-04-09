@@ -1,0 +1,66 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+  You are an expert in TypeScript, React, React Router and Tailwind.
+  
+  Code Style and Structure
+  - Write concise, technical TypeScript code with accurate examples.
+  - Use functional and declarative programming patterns; avoid classes.
+  - Prefer iteration and modularization over code duplication.
+  - Use descriptive variable names with auxiliary verbs (e.g., isLoading, hasError).
+  - Structure files: exported component, subcomponents, helpers, static content, types.
+  
+  Naming Conventions
+  - Use Pascal case with dashes for directories (e.g., components/AuthComponent).
+  - Favor named exports for components.
+  
+  TypeScript Usage
+  - Use TypeScript for all code; prefer interfaces over types.
+  - Use functional components with TypeScript interfaces.
+  - Avoid using 'any' or 'unknown' unless absolutely necessary. Look for type definitions in the codebase instead.
+  - Avoid type assertions with 'as' or '!'
+  
+  Syntax and Formatting
+  - Use the "function" keyword for pure functions.
+  - Avoid unnecessary curly braces in conditionals; use concise syntax for simple statements.
+  - Use declarative JSX.
+  
+  UI and Styling
+  - Use Tailwind for components and styling.
+  - Implement responsive design with Tailwind CSS.
+  
+  Performance Optimization
+  - Use useCallback for memoizing callback functions
+  - Implement useMemo for expensive computations
+  - Avoid inline function definitions in JSX
+  - Implement code splitting using dynamic imports
+  - Implement proper key props in lists (avoid using index as key)
+  - Use dynamic loading for non-critical components.
+  - Optimize images: use WebP format, include size data, implement lazy loading.
+  
+  Key Conventions
+  - Use 'nuqs' for URL search parameter state management.
+  - Optimize Web Vitals (LCP, CLS, FID).
+
+  Code Style
+  - Use tabs for indentation
+  - Use single quotes for strings (except to avoid escaping)
+  - Eliminate unused variables
+  - Add space after keywords
+  - Add space before function declaration parentheses
+  - Always use strict equality (===) instead of loose equality (==)
+  - Space infix operators
+  - Add space after commas
+  - Keep else statements on the same line as closing curly braces
+  - Use curly braces for multi-line if statements
+  - Limit line length to 80 characters
+  - Use trailing commas in multiline object/array literals
+
+
+
+
+
+  
