@@ -17,5 +17,7 @@ export default defineConfig({
       shared: path.resolve(__dirname, 'src/shared'),
       types: path.resolve(__dirname, 'src/types'),
     },
-  }
+  },
+
+  base: '/dashboard/',
 })
