@@ -1,6 +1,12 @@
-import { Widget } from "shared/hooks/useWidgets";
+import { ReactNode } from "react";
 
 export const WIDGET_LOCAL_STORAGE_KEY = "activeWidgets";
+
+export interface Widget {
+  id: string;
+  name: string;
+  content: ReactNode
+}
 
 export const WIDGETS_LIST: Widget[] = [
   { 

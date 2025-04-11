@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { ChangeEvent, memo, useEffect, useState } from 'react';
 import clsx from 'clsx';
 
 import { WIDGETS_LIST } from 'shared/constants/widgetsConst';
@@ -7,6 +7,29 @@ import { useDashboard } from 'app/DashboardContext/hook';
 export const WidgetsPanel = memo(() => {
 
   const { activeWidgetIds, activateWidget, resetWidget } = useDashboard();
+  
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filteredWidgets, setFilteredWidgets] = useState(WIDGETS_LIST);
+  
+  useEffect(() => {
+    if (!searchTerm.length) { 
+      setFilteredWidgets(WIDGETS_LIST);
+      return
+    };
+
+    const timerId = setTimeout(() => {
+      const results = WIDGETS_LIST.filter((widget) => {
+        return widget.name.toLowerCase().includes(searchTerm.toLowerCase())
+      });
+      setFilteredWidgets(results);
+    }, 500); 
+
+    return () => clearTimeout(timerId);
+  }, [searchTerm]);
+  
+  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+  };
 
   return (
     <section 
@@ -18,11 +41,12 @@ export const WidgetsPanel = memo(() => {
           type="text"
           placeholder="Search"
           className="border border-gray-300 p-2 rounded-lg w-full"
+          onChange={handleSearchChange}
         />
       </div>
 
       <div className="grid grid-cols-4 gap-4">
-        {WIDGETS_LIST.map((widget) => {
+        {filteredWidgets.map((widget) => {
           const isActive = !!activeWidgetIds.find((id) => id === widget.id);
 
             return (
