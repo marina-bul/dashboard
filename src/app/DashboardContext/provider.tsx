@@ -25,11 +25,10 @@ export const DashboardProvider: FC<PropsWithChildren> = ({ children }) => {
     setActiveWidgetIds(prev => [...prev, id]);
   }, []);
   
-  const handleLayoutChange = useCallback((newLayout: Layout[]) => {
+  const handleLayoutChange = useCallback((newLayout: Layout[]) => {  
     const updatedLayout = [...newLayout];
-    const layoutMap = new Map(layout.map(item => [item.i, item]))  
+    const layoutMap = new Map(layout.map(item => [item.i, item]));
     
-      
     if(newLayout.length > layout.length) {
       const newItemIndex = newLayout.findIndex((item) => !layoutMap.has(item.i))
 
@@ -40,7 +39,7 @@ export const DashboardProvider: FC<PropsWithChildren> = ({ children }) => {
           w: GRID_CONFIG.COLS,
           h: GRID_ELEMENT_HEIGHT,
         };
-    }
+    }    
       
     setLayout(updatedLayout);
   }, [layout]);

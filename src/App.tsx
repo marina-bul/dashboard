@@ -40,7 +40,7 @@ function App() {
           >
           <WidgetsPanel />
           </div>
-          <Dashboard />
+          <Dashboard isEditing={isEditing} />
         </main>
       </div>
   )
