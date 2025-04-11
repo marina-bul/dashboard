@@ -1,7 +1,7 @@
 import { memo } from "react";
 
 import type { FC } from "react";
-import type { Widget } from "shared/hooks/useWidgets";
+import type { Widget } from "shared/constants/widgetsConst";
 
 interface WidgetItemProps {
   widget: Widget
