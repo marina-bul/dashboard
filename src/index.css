@@ -2,6 +2,8 @@
 
 
 :root {
+  width: 100vw;
+  height: 100vh;
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -10,14 +12,11 @@
   color: #000000;
   background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
   background-color: #accbee;
+  overflow: hidden;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
 h1 {

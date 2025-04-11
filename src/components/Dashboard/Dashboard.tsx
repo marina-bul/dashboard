@@ -1,7 +1,9 @@
+import { memo, useMemo } from 'react';
 import RGL, { WidthProvider } from "react-grid-layout";
 
-import { useWidgetsContext } from "app/WidgetsContext/hook";
-import { useWidgetLayout, GRID_CONFIG } from "shared/hooks/useWidgetLayout";
+import { useDashboard } from "app/DashboardContext/hook";
+import { GRID_CONFIG } from "shared/constants/layoutConst";
+import { WIDGETS_LIST } from "shared/constants/widgetsConst";
 
 import { WidgetItem } from "./elems/WidgetItem";
 
@@ -10,9 +12,13 @@ import "react-resizable/css/styles.css";
 
 const GridLayout = WidthProvider(RGL);
 
-export const Dashboard = () => {
-  const { activeWidgets } = useWidgetsContext();
-  const { layout, handleLayoutChange } = useWidgetLayout();
+export const Dashboard = memo(() => {
+
+  const { activeWidgetIds, layout, handleLayoutChange } = useDashboard();
+
+  const activeWidgets = useMemo(() => {
+    return WIDGETS_LIST.filter((widget) => activeWidgetIds.includes(widget.id))
+  }, [activeWidgetIds])
   
   return (
     <GridLayout
@@ -25,7 +31,7 @@ export const Dashboard = () => {
       draggableHandle=".drag-handle"
       useCSSTransforms={true}
     >
-      {activeWidgets.map(widget => (
+      {activeWidgets.map((widget) => (
         <div
           key={widget.id}
           className="border rounded shadow bg-white overflow-hidden"
@@ -35,4 +41,4 @@ export const Dashboard = () => {
       ))}
     </GridLayout>
   );
-};
+});
