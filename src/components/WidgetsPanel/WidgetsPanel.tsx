@@ -45,7 +45,7 @@ export const WidgetsPanel = memo(() => {
         />
       </div>
 
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
         {filteredWidgets.map((widget) => {
           const isActive = !!activeWidgetIds.find((id) => id === widget.id);
 
@@ -53,7 +53,7 @@ export const WidgetsPanel = memo(() => {
               <div
                 key={widget.id}
                 className={
-                  clsx("flex items-center justify-between border border-[#0B5FA5] p-4 rounded-lg ",
+                  clsx("flex items-center justify-between flex-col sm:flex-row border border-[#0B5FA5] p-2 sm:p-4 rounded-lg ",
                   isActive ? "bg-blue-200" : "bg-gray-100"
                   )
                 }
@@ -61,7 +61,7 @@ export const WidgetsPanel = memo(() => {
                 <span>{widget.name}</span>
   
                   <button 
-                    className="bg-white text-black px-2 rounded border border-[#0B5FA5]"
+                    className="bg-white mt-4 sm:mt-0 text-black px-2 rounded border border-[#0B5FA5]"
                     onClick={() => 
                       isActive
                       ? resetWidget(widget.id)

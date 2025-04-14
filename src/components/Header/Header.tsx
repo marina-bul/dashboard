@@ -15,9 +15,9 @@ export const Header: FC<HeaderProps> = memo(({
 }) => {
   return (
     <header 
-      className="flex justify-between items-center p-6 border-b shadow-sm sticky top-0"
+      className="flex justify-between items-center flex-col sm:flex-row p-6 border-b shadow-sm sticky top-0"
     >
-      <h1 className="text-xl font-bold">My Dashboard</h1>
+      <h1 className="text-3xl font-bold sm:pb-0 pb-6">My Dashboard</h1>
       
       <div>
         {mode === 'edit' ? (
